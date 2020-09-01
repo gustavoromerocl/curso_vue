@@ -16,6 +16,26 @@
             el: "#app",
             data: {
                 message: "Hola mundo"
+            },
+
+            beforeCreate: function() {
+                console.log("Before")
+            },
+
+            created: function() {
+                console.log("Created")
+            },
+
+            mounted: function() {
+                console.log("Mounted")
+            },
+
+            updated: function() {
+                console.log("Updated")
+            },
+
+            destroyed: function() {
+                console.log("Destroyed")
             }
         })
     </script>
