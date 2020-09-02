@@ -8,7 +8,13 @@
 <body>
     <div id="app">
         <h1 v-text="message"></h1>
-        <span v-bind:title="message">Hola</span>
+        <span v-bind:title="message" v-if="flag">Hola</span>
+        <p v-else>Hola desactivado</p>
+        <template v-if="flag">
+            <p>sad</p>
+            <p>dsad</p>
+            <p>asd</p>
+        </template>
         <ul>
             <li v-for="(value,key,index) in items" :key="index">{{value}}</li>
         </ul>
@@ -34,6 +40,7 @@
             el: "#app",
             data: {
                 message: "Hola mundo",
+                flag: true,
                 items: {
                     name: "codi",
                     age: 10 
