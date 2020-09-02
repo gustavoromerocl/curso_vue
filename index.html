@@ -9,7 +9,23 @@
     <div id="app">
         <h1 v-text="message"></h1>
         <span v-bind:title="message">Hola</span>
-    <!--    <h1>{{ message }}</h1>
+        <ul>
+            <li v-for="(value,key,index) in items" :key="index">{{value}}</li>
+        </ul>
+    <!-- 
+        <ul>
+            <li v-for="(value,key,index) in items">{{++index}} {{key}} {{value}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="item in items">{{item}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="item in items">{{item.name}}</li> 
+        </ul>
+
+       <h1>{{ message }}</h1>
         <input type="text" v-model="message">  -->
     </div>
     <script src="vue.js"></script>
@@ -17,8 +33,13 @@
         var vm = new Vue({
             el: "#app",
             data: {
-                message: "Hola mundo"
+                message: "Hola mundo",
+                items: {
+                    name: "codi",
+                    age: 10 
+                }
             },
+
 
             beforeCreate: function() {
                 console.log("Before")
