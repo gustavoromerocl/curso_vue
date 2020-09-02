@@ -7,8 +7,10 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{ message }}</h1>
-        <input type="text" v-model="message">
+        <h1 v-text="message"></h1>
+        <span v-bind:title="message">Hola</span>
+    <!--    <h1>{{ message }}</h1>
+        <input type="text" v-model="message">  -->
     </div>
     <script src="vue.js"></script>
     <script>
