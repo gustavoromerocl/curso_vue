@@ -16,9 +16,21 @@
             <p>asd</p>
         </template>
         <ul>
-            <li v-for="(value,key,index) in items" :key="index">{{value}}</li>
+            <li v-for="(value,key,index) in items" :key="index">{{value}}</li> 
         </ul>
+
+        <form @submit.prevent="eventClick">
+            <button type="submit">Enviar</button>
+        </form>
+
+        <input type="text" @keyup.enter.once="eventClick">
+        <div @copy="eventClick">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad expedita dignissimos ratione officiis, unde repellendus minus corporis aspernatur non tenetur velit reprehenderit ipsum eaque! Reprehenderit facere fuga officia voluptate eum.
+        </div>
+        
     <!-- 
+        <button @click="eventClick('Hola',$event)">Click</button>
+
         <ul>
             <li v-for="(value,key,index) in items">{{++index}} {{key}} {{value}}</li>
         </ul>
@@ -46,7 +58,12 @@
                     age: 10 
                 }
             },
+            methods:{
+                eventClick: function(){
+                    alert("sent")
+                }
 
+            },
 
             beforeCreate: function() {
                 console.log("Before")
