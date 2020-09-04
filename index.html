@@ -15,95 +15,48 @@
 </head>
 <body>
     <div id="app">
-        
-        <div v-bind:style="{fontSize: fontSize + 'px'}"  v-bind:class="{'blue': flag}"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Non debitis illum beatae blanditiis, a itaque molestiae placeat ab saepe autem necessitatibus cumque alias corporis fugiat voluptatibus similique quaerat accusamus distinctio.</div>
-        <div v-bind:class="[(flag) ? 'blue' : 'red']">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quod odio quae aut natus et sunt eveniet praesentium expedita pariatur, animi exercitationem autem voluptatem in! Nisi est quidem debitis explicabo.</div>
-        <div></div>
-        <h1 v-text="message"></h1>
-        <span v-bind:title="message" v-if="flag">Hola</span>
-        <p v-else>Hola desactivado</p>
-        <template v-if="flag">
-            <p>sad</p>
-            <p>dsad</p>
-            <p>asd</p>
+        <template v-if="errors.length">
+            <ul>
+                <li v-for="error in errors" v-text="error"></li>
+            </ul>   
         </template>
-        <ul>
-            <li v-for="(value,key,index) in items" :key="index">{{value}}</li> 
-        </ul>
-
-        <form @submit.prevent="eventClick">
+        <form @submit.prevent="formSubmit">
+            <input type="text" v-model="input">
+            <select v-model="select">
+                <option value="Default">Default</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+            <textarea v-model="textarea" cols="30" rows="10"></textarea>
             <button type="submit">Enviar</button>
         </form>
-
-        <input type="text" @keyup.enter.once="eventClick">
-        <div @copy="eventClick" v-bind:class="classObject">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad expedita dignissimos ratione officiis, unde repellendus minus corporis aspernatur non tenetur velit reprehenderit ipsum eaque! Reprehenderit facere fuga officia voluptate eum.
-        </div>
-
-        
-    <!-- 
-        <button @click="eventClick('Hola',$event)">Click</button>
-
-        <ul>
-            <li v-for="(value,key,index) in items">{{++index}} {{key}} {{value}}</li>
-        </ul>
-
-        <ul>
-            <li v-for="item in items">{{item}}</li>
-        </ul>
-
-        <ul>
-            <li v-for="item in items">{{item.name}}</li> 
-        </ul>
-
-       <h1>{{ message }}</h1>
-        <input type="text" v-model="message">  -->
     </div>
     <script src="vue.js"></script>
     <script>
         var vm = new Vue({
             el: "#app",
             data: {
-                message: "Hola mundo",
-                flag: true,
-                items: {
-                    name: "codi",
-                    age: 10 
-                },
-                fontSize: 50
+                errors: [],
+                input: "",
+                select: "",
+                textarea: ""
             },
             methods:{
-                eventClick: function(){
-                    alert("sent")
+                formSubmit: function(){
+                    this.errors = []
+                    if(!this.input)
+                        this.errors.push("El campo input es requerido")
+                    if(!this.select)
+                        this.errors.push("El campo select es requerido")
+                    if(!this.textarea)
+                        this.errors.push("El campo textarea es requerido")
+                    console.log(this.input)
+                    console.log(this.select)
+                    console.log(this.textarea)
                 }
-            },
-            computed:{
-                classObject: function() {
-                    return {
-                        'blue': this.flag
-                    }
-                }
-            },
 
-            beforeCreate: function() {
-                console.log("Before")
             },
-
-            created: function() {
-                console.log("Created")
-            },
-
-            mounted: function() {
-                console.log("Mounted")
-            },
-
-            updated: function() {
-                console.log("Updated")
-            },
-
-            destroyed: function() {
-                console.log("Destroyed")
-            }
         })
     </script>
 </body>
