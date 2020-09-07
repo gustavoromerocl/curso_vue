@@ -15,48 +15,39 @@
 </head>
 <body>
     <div id="app">
-        <template v-if="errors.length">
-            <ul>
-                <li v-for="error in errors" v-text="error"></li>
-            </ul>   
-        </template>
-        <form @submit.prevent="formSubmit">
-            <input type="text" v-model="input">
-            <select v-model="select">
-                <option value="Default">Default</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-            </select>
-            <textarea v-model="textarea" cols="30" rows="10"></textarea>
-            <button type="submit">Enviar</button>
-        </form>
+        <p>{{ mGetRandom() }}</p> 
+        <p>{{ mGetRandom() }}</p> 
+        <p>{{ mGetRandom() }}</p>
+        <hr>
+        <p>{{ cGetRandom }}</p>
+        <p>{{ cGetRandom }}</p>
+        <p>{{ cGetRandom }}</p>
     </div>
     <script src="vue.js"></script>
     <script>
         var vm = new Vue({
             el: "#app",
             data: {
-                errors: [],
                 input: "",
-                select: "",
-                textarea: ""
             },
             methods:{
-                formSubmit: function(){
-                    this.errors = []
-                    if(!this.input)
-                        this.errors.push("El campo input es requerido")
-                    if(!this.select)
-                        this.errors.push("El campo select es requerido")
-                    if(!this.textarea)
-                        this.errors.push("El campo textarea es requerido")
-                    console.log(this.input)
-                    console.log(this.select)
-                    console.log(this.textarea)
+                mGetRandom: function() {
+                    return Math.random()
                 }
-
             },
+
+            computed:{
+                cGetRandom: function() {
+                    return Math.random()
+                }
+            },
+
+            watch:{
+                input: function(new_value, old_value) {
+                    console.log("New" + new_value)
+                    console.log("Old" + old_value)
+                }
+            }
         })
     </script>
 </body>
