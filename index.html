@@ -17,8 +17,16 @@
     <div id="app">
         <new-component></new-component>
     </div>
+
+    <div id="app2">
+        <new-component></new-component>
+    </div>
+
     <script src="vue.js"></script>
     <script>
+
+        //Definir componente de manera global
+        /*
         Vue.component("new-component", {
             template: "<button @click='clickCounter'>Clicks {{ counter }}</button>",
             data: function() {
@@ -33,30 +41,36 @@
                 }
             }
         })
-        
+        */
+
+        var newComponent = {
+            template: "<button @click='clickCounter'>Clicks {{ counter }}</button>",
+            data: function() {
+                return {
+                    counter: 0
+                }
+            },
+
+            methods: {
+                clickCounter: function() {
+                    this.counter++
+                }
+            }
+        }
+
         var vm = new Vue({
             el: "#app",
             data: {
                 input: "",
             },
-            methods:{
-                mGetRandom: function() {
-                    return Math.random()
-                }
-            },
-
-            computed:{
-                cGetRandom: function() {
-                    return Math.random()
-                }
-            },
-
-            watch:{
-                input: function(new_value, old_value) {
-                    console.log("New" + new_value)
-                    console.log("Old" + old_value)
-                }
+            components: {
+                'new-component': newComponent
             }
+        })
+    </script>
+    <script>
+        var vm2 = new Vue({
+            el: "#app2"
         })
     </script>
 </body>
