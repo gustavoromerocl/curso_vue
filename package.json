@@ -1,0 +1,22 @@
+{
+  "name": "app_vue",
+  "version": "1.0.0",
+  "description": "curso vue",
+  "main": "n",
+  "scripts": {
+    "test": "{"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romerodevelopment/curso_vue.git"
+  },
+  "author": "Romero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romerodevelopment/curso_vue/issues"
+  },
+  "homepage": "https://github.com/romerodevelopment/curso_vue#readme",
+  "dependencies": {
+    "vue": "^2.6.12"
+  }
+}

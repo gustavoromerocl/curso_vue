@@ -18,7 +18,8 @@
         <new-component :title="titulo" :comments="comentarios" :autor="autor"></new-component>
     </div>
 
-    <script src="vue.js"></script>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+ 
     <script>        
         var newComponent = {
             template: "<h1>{{ title }} {{comments * 2}} {{autor.name}}</h1>",
