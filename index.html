@@ -15,62 +15,36 @@
 </head>
 <body>
     <div id="app">
-        <new-component></new-component>
-    </div>
-
-    <div id="app2">
-        <new-component></new-component>
+        <new-component :title="titulo" :comments="comentarios" :autor="autor"></new-component>
     </div>
 
     <script src="vue.js"></script>
-    <script>
-
-        //Definir componente de manera global
-        /*
-        Vue.component("new-component", {
-            template: "<button @click='clickCounter'>Clicks {{ counter }}</button>",
-            data: function() {
-                return {
-                    counter: 0
-                }
-            },
-
-            methods: {
-                clickCounter: function() {
-                    this.counter++
-                }
-            }
-        })
-        */
-
+    <script>        
         var newComponent = {
-            template: "<button @click='clickCounter'>Clicks {{ counter }}</button>",
-            data: function() {
-                return {
-                    counter: 0
-                }
-            },
-
-            methods: {
-                clickCounter: function() {
-                    this.counter++
-                }
+            template: "<h1>{{ title }} {{comments * 2}} {{autor.name}}</h1>",
+            props: {
+                title: String,
+                comments: Number,
+                autor: Object
             }
+                
+            
         }
 
         var vm = new Vue({
             el: "#app",
             data: {
                 input: "",
+                titulo: "Titulo Post",
+                comentarios: 3,
+                autor: {
+                    name: "Name"
+                }
             },
+            //Registrar componente de manera local
             components: {
                 'new-component': newComponent
             }
-        })
-    </script>
-    <script>
-        var vm2 = new Vue({
-            el: "#app2"
         })
     </script>
 </body>
