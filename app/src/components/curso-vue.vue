@@ -1,9 +1,21 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
+    <a href="#">
+      <slot name="header">
+        Header
+      </slot>
+      <br>
+      <slot name="body">
+        Body
+      </slot>
+      <br>
+      <slot name="footer">
+        Footer
+      </slot>
+    </a>
   </div>
 </template>
-
+ 
 <script>
 export default {
   name: 'CursoVue',

@@ -2,7 +2,11 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Componente base de Vue"/>
-    <CursoVue msg="Hola Mundo"/>
+    <CursoVue msg="Hola Mundo">
+      <template v-slot:header>
+        Este no es el Header
+      </template>
+    </CursoVue>
   </div>
 </template>
 
