@@ -7,12 +7,14 @@
         Este no es el Header
       </template>
     </CursoVue>
+    <Shopping msg="Componente shopping"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import CursoVue from './components/curso-vue.vue'
+import Shopping from './components/Shopping.vue'
+import CursoVue from './components/Curso-vue.vue'
 
 export default {
   name: 'App',
