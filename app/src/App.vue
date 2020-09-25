@@ -20,7 +20,8 @@ export default {
   name: 'App',
   components: {
     HelloWorld,
-    CursoVue
+    CursoVue,
+    Shopping
   }
 }
 </script>
