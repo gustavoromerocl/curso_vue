@@ -1,7 +1,7 @@
 <template>
   <div>
       <button @click="show = !show">Toggle</button>
-      <transition name="fade">
+      <transition name="fade" enter-active-class="animated tada" leave-active-class="animated bounceInRight">
           <p v-if="show">Hello</p>
       </transition>
   </div>
@@ -21,11 +21,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-  }
 
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity 2s;
-  }
 </style>
