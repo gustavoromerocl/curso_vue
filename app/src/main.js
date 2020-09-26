@@ -8,6 +8,13 @@ Vue.use(VueRouter)
 Vue.config.productionTip = false
 Vue.use(Vuelidate)
 
+//Definir directiva de manera global
+Vue.directive('width', {
+    inserted: function(el, binding) {
+    el.style.width = binding.value;
+  }
+})
+
 new Vue({
   render: h => h(App),
   router

@@ -1,7 +1,6 @@
 <template>
   <div>
-      <p>{{ name | uppercase }}</p>
-      <input type="text" v-model="name"> 
+      <input type="text" v-width="'300px'">
   </div>
 </template>
  
@@ -11,17 +10,28 @@
 export default {
     data() {
         return {
-            name: ""
+        
         }
     },
     components: {
 
     },
-    filters: {
-        uppercase: function(value) {
-            if(!value) return ''
-            return value.toString().toUpperCase()
+    directives: {
+        /*
+        width: {
+            Bind:
+            Inserted:
+            update:
+            componentUpdated:
+            unBind:
         }
+        
+       width: {
+           inserted: function(el, binding) {
+               el.style.width = binding.value;
+           }
+       }
+       */
     }
 }
 </script>
