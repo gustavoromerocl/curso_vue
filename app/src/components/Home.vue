@@ -1,27 +1,27 @@
 <template>
   <div>
-      <Product v-for="item in items" :item="item" :key="item.id" />
+      <p>{{ name | uppercase }}</p>
+      <input type="text" v-model="name"> 
   </div>
 </template>
  
 <script>
-import Product from './Product'
+
 
 export default {
     data() {
         return {
-            items: [
-                {id:1, name:"item1"},
-                {id:2, name:"item2"},
-                {id:3, name:"item3"},
-                {id:4, name:"item4"},
-                {id:5, name:"item5"},
-                {id:6, name:"item6"},
-            ]
+            name: ""
         }
     },
     components: {
-        Product 
+
+    },
+    filters: {
+        uppercase: function(value) {
+            if(!value) return ''
+            return value.toString().toUpperCase()
+        }
     }
 }
 </script>
