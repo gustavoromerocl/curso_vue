@@ -8,18 +8,22 @@ Vue.use(Vuex)
 const ob2 = {
     namespaced: true,
     state: {
-        count: 0
+        message: ""
     },
     mutations: {
-        increment(state) {
-            state.count++
+        increment(state, value) {
+            state.message = value
         }
     },
     getters: {
-        getCount: (state) =>{
-            return state.count
+        getMessage: (state) =>{
+            return state.message
         }
     },
+
+    // El modo estricto no permite que se muten las propiedades desde metodos externos a Vuex
+   /* strict: true */
+   strict: process.env.NODE_ENV !== 'production' //activar el modo estricto solo en entorno de desarrollo.
 }
 
 const store = new Vuex.Store({

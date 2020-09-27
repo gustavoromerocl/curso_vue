@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-      <p>{{$store.getters['a/getCount']}}</p>
-  <!--    <p>{{$store.getters.getCount}}</p> -->
-      <button @click="add">+</button>
+    <p>{{ $store.getters['b/getMessage'] }}</p>
+    <input v-model="message" type="text">
   </div>
 </template>
 
@@ -14,7 +13,21 @@ export default {
   },
   methods: {
     add: function() {
-      this.$store.commit('a/increment')
+
+    }
+  },
+  created() {
+    this.$store.commit('b/increment', "Hola") // se de realizar de esta manera
+    this.$store.state.message = "Hola" // esta es una mala practica
+  },
+  computed: {
+    message: {
+      set(value) {
+        this.$store.commit('b/increment', value)
+      },
+      get() {
+        return this.$store.getters['b/getMessage']
+      }
     }
   }
 }
