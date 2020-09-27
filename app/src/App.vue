@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-      <p>{{$store.getters.getCount(2)}}</p>
+      <p>{{$store.getters['a/getCount']}}</p>
+  <!--    <p>{{$store.getters.getCount}}</p> -->
       <button @click="add">+</button>
   </div>
 </template>
@@ -13,7 +14,7 @@ export default {
   },
   methods: {
     add: function() {
-      this.$store.dispatch('increment')
+      this.$store.commit('a/increment')
     }
   }
 }

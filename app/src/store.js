@@ -3,7 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+const ob1 = {
+    namespaced: true,
     state: {
         count: 0
     },
@@ -13,18 +14,33 @@ const store = new Vuex.Store({
         }
     },
     getters: {
-        getCount: (state) => (id) =>{
-            return state.count * id
+        getCount: (state) =>{
+            return state.count
         }
     },
-    actions: {
-        increment(context) {
-            setTimeout( () => {
-                context.commit('increment')
-            }, 2000)
-           
-            
+}
+
+const ob2 = {
+    namespaced: true,
+    state: {
+        count: 0
+    },
+    mutations: {
+        increment(state) {
+            state.count++
         }
+    },
+    getters: {
+        getCount: (state) =>{
+            return state.count
+        }
+    },
+}
+
+const store = new Vuex.Store({
+    modules: {
+        a: ob1,
+        b: ob2
     }
 })
 
