@@ -3,6 +3,8 @@ import App from './App.vue'
 import Vuelidate from 'vuelidate'
 import router from './router.js'
 import VueRouter from  'vue-router'
+import store from './store.js'
+
 
 Vue.use(VueRouter)
 Vue.config.productionTip = false
@@ -17,5 +19,6 @@ Vue.directive('width', {
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')

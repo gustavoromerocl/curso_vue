@@ -2,6 +2,16 @@
 npm install -g @vue/cli    
 vue create vueapp
 
+
+--Instalar vuelidate
+npm install vuelidate 
+
+--Instalar Vuex
+npm install vuex --save
+
+--Instalar Vue Router
+npm install vue-router --save
+
 Directivas
 v-text
 v-html
