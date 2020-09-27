@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     add: function() {
-      this.$store.commit('increment', 2)
+      this.$store.dispatch('increment')
     }
   }
 }
