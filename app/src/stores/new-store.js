@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import ob1 from './stores/new-store.js'
 
 Vue.use(Vuex)
 
-
-const ob2 = {
+const ob1 = {
     namespaced: true,
     state: {
         count: 0
@@ -22,11 +20,4 @@ const ob2 = {
     },
 }
 
-const store = new Vuex.Store({
-    modules: {
-        a: ob1,
-        b: ob2
-    }
-})
-
-export default store
+export default ob1
